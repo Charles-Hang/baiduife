@@ -46,14 +46,15 @@ function Operator() {
 	}
 };
 //绑定页面中各数据块
-function addDeletEvent(instence) {
+function addDeletEvent(obj) {
 	var box = document.getElementById('queue-box');
 	var items = box.children;
 	var length = items.length;
 	for (var i = 0; i < length; i++) {
+		//用闭包保存i状态
 		items[i].addEventListener('click', (function(index) {
 			return function() {
-				instence.delet(index);
+				obj.delet(index);
 			}
 		})(i));
 	}
