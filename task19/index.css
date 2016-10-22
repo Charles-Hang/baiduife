@@ -1,9 +1,9 @@
 .container {
-	width: 1000px;
+	width: 1200px;
 	margin: 0 auto;
 }
 .container .input-box {
-	width: 360px;
+	width: 420px;
 	margin: 0 auto;
 }
 .container .input-box:after {
@@ -32,20 +32,12 @@
 	font-size: 15px;
 }
 .queue-box {
-	border-top: 1px solid #F51D2A;
-	border-bottom: 1px solid #F51D2A;
-	width: 1000px;
-	margin: 40px auto 0;
-	height: 50px;
+	width: 100%;
+	margin-top: 40px;
 }
 .queue-box div {
 	display: inline-block;
 	background: #F51D2A;
-	margin: 5px;
-	color: #fff;
-	min-width: 40px;
-	height: 40px;
-	font-size: 20px;
-	text-align: center;
-	line-height: 40px;
+	margin: 2px;
+	width: 15px;
 }

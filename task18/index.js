@@ -14,7 +14,7 @@ function Operator() {
 		this.box.innerHTML = inner;
 		this.ipt.value = '';
 		//每次呈现后都重新绑定页面中各数据块
-		addDeletEvent(this);
+		this.addDeletEvent(this);
 	}
 	this.lIn = function() {
 		if (this.ipt.value && /^[0-9]*$/.test(this.ipt.value)) {
@@ -44,21 +44,22 @@ function Operator() {
 		this.queue.splice(i,1);
 		this.show();
 	}
-};
-//绑定页面中各数据块
-function addDeletEvent(obj) {
-	var box = document.getElementById('queue-box');
-	var items = box.children;
-	var length = items.length;
-	for (var i = 0; i < length; i++) {
-		//用闭包保存i状态
-		items[i].addEventListener('click', (function(index) {
-			return function() {
-				obj.delet(index);
-			}
-		})(i));
+	//绑定页面中各数据块
+	this.addDeletEvent = function(obj) {
+		var box = document.getElementById('queue-box');
+		var items = box.children;
+		var length = items.length;
+		for (var i = 0; i < length; i++) {
+			//用闭包保存i状态
+			items[i].addEventListener('click', (function(index) {
+				return function() {
+					obj.delet(index);
+				}
+			})(i));
+		}
 	}
-}
+};
+
 window.onload = function() {
 	var lInBtn = document.getElementById('lIn');
 	var rInBtn = document.getElementById('rIn');
